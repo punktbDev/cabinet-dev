@@ -627,30 +627,47 @@ function renderResult(result) {
                         <input type="text" value="${getData(result.date)}" readonly>
                     </div>
                 </div>
-                
-                <div class="d-table-two-column d-table-row_first">
-                    <p class="centered centered-text upper">Изменить текст</p>
-                    <p class="centered upper">Баллы</p>
+
+                <div class="d-table-row d-table-row_first">
+                    <p class="centered centered-text upper">Название</p>
+                    <p class="centered upper">Вес</p>
+                    <p class="centered centered-text upper">Описание</p>
                 </div>
                 
-                <div class="d-table-two-column">
-                    <p class="centered centered-text">Вовлечённость</p>
+                <div class="d-table-row">
+                    <p class="ver-center">Вовлечённость</p>
                     <p class="centered">${result.data.involvement}</p>
+                    <p class="centered">• Низкие значения (менее 30 баллов) отражают низкую убеждённость в том, что активное участие в жизни приносит смысл и удовольствие, что может приводить к отстранённости и потере интереса к происходящему.
+<span>&nbsp;</span>• Средние значения примерно в диапазоне 30–45 баллов свидетельствуют о умеренной вовлечённости, когда человек испытывает некоторый интерес к жизни, но не всегда активно вовлечён в происходящее, возможно, с колебаниями мотивации и эмоционального участия.
+<span>&nbsp;</span>• Высокие значения (46 и более баллов) говорят о высокой вовлечённости, когда человек ощущает себя частью окружающего мира, активно участвует в событиях и получает удовлетворение от своей деятельности.
+                    </p>
                 </div>
 
-                <div class="d-table-two-column">
-                    <p class="centered centered-text">Контроль</p>
+                <div class="d-table-row">
+                    <p class="ver-center">Контроль</p>
                     <p class="centered">${result.data.control}</p>
+                    <p class="centered">• Низкие значения (менее 20,5 баллов) указывают на низкую веру в возможность влиять на события и достигать поставленных целей, что может вызывать чувство беспомощности и потерю уверенности в себе.
+<span>&nbsp;</span>• Средние значения в диапазоне примерно 20,5–37,4 баллов отражают умеренный уровень контроля, когда человек иногда чувствует влияние на ситуацию, но не всегда уверен в своих силах и результатах.
+<span>&nbsp;</span>• Высокие значения (37,5 и более баллов) свидетельствуют о высоком уровне контроля, когда человек верит в свою способность управлять ситуацией и добиваться желаемых результатов.
+                    </p>
                 </div>
         
-                <div class="d-table-two-column">
-                    <p class="centered centered-text">Принятие риска</p>
+                <div class="d-table-row">
+                    <p class="ver-center">Принятие риска</p>
                     <p class="centered">${result.data.riskAcceptance}</p>
+                    <p class="centered">• Низкие значения (менее 9,6 баллов) отражают низкую готовность воспринимать жизненные трудности как опыт и возможность для развития, что может приводить к избеганию сложных ситуаций и страху перед переменами.
+<span>&nbsp;</span>• Средние значения в диапазоне 9,6–18,3 баллов свидетельствуют о умеренной готовности к риску, когда человек иногда готов принимать вызовы, но предпочитает избегать неопределённости и больших изменений.
+<span>&nbsp;</span>• Высокие значения (18,4 и более баллов) говорят о высокой готовности к риску, когда человек видит в трудностях шанс для роста и развития, не боится пробовать новое и извлекает уроки из неудач.
+                    </p>
                 </div>
         
-                <div class="d-table-two-column d-table-row_last">
-                    <p class="centered centered-text">Жизнестойкость</p>
+                <div class="d-table-row d-table-row_last">
+                    <p class="ver-center">Жизнестойкость</p>
                     <p class="centered">${result.data.vitalityScore}</p>
+                    <p class="centered">• Низкие значения (менее 62 баллов) указывают на низкий уровень психологической устойчивости, что может проявляться в пассивности, тревожности и ощущении беспомощности перед лицом жизненных трудностей.
+<span>&nbsp;</span>• Средние значения примерно в диапазоне 62–97 баллов отражают средний уровень жизнестойкости, когда человек способен справляться с трудностями, но иногда испытывает стресс и сомнения в своих силах.
+<span>&nbsp;</span>• Высокие значения (98 и более баллов) свидетельствуют о высоком уровне жизнестойкости, характеризующемся активным и адаптивным поведением в стрессовых ситуациях, а также уверенностью в своих силах.
+                    </p>
                 </div>
             </div>
         `)
@@ -689,7 +706,7 @@ function renderResult(result) {
                 </div>
                 
                 <div class="d-table-two-column d-table-row_first">
-                    <p class="centered centered-text upper">Изменить текст</p>
+                    <p class="centered centered-text upper">Название</p>
                     <p class="centered upper">Баллы</p>
                 </div>
                 
@@ -699,7 +716,7 @@ function renderResult(result) {
                 </div>
 
                 <div class="d-table-two-column d-table-row_last">
-                    <p class="centered centered-text">Пояснение</p>
+                    <p class="centered centered-text">Интерпретация</p>
                     <p class="learning-motivation-level centered">${textLevel}</p>
                 </div>
             </div>
@@ -723,30 +740,35 @@ function renderResult(result) {
                         <input type="text" value="${getData(result.date)}" readonly>
                     </div>
                 </div>
-                
-                <div class="d-table-two-column d-table-row_first">
-                    <p class="centered centered-text upper">Изменить текст</p>
-                    <p class="centered upper">Баллы</p>
+
+                <div class="d-table-row d-table-row_first">
+                    <p class="centered centered-text upper">Название</p>
+                    <p class="centered upper">Вес</p>
+                    <p class="centered centered-text upper">Описание</p>
                 </div>
                 
-                <div class="d-table-two-column">
-                    <p class="centered centered-text">Эмоциональное истощение</p>
+                <div class="d-table-row">
+                    <p class="ver-center">Эмоциональное истощение</p>
                     <p class="centered">${result.data.emotionalExhaustion}</p>
+                    <p class="centered">Это основная составляющая выгорания. Чем выше этот показатель, тем больше выражено эмоциональное истощение (максимальное значение показателя - 54 балла). Значения от 0 до 15 баллов - низкий уровень эмоционального истощения, от 16 до 24 - средний, от 25 и выше -  высокий уровень. Проявляется в переживаниях сниженного эмоционального тонуса, повышенной психической истощаемости, утрате интереса и позитивных чувств к окружающим, ощущении «пресыщенности» работой, неудовлетворенностью жизнью в целом.</p>
                 </div>
 
-                <div class="d-table-two-column">
-                    <p class="centered centered-text">Деперсонализация</p>
+                <div class="d-table-row">
+                    <p class="ver-center">Деперсонализация</p>
                     <p class="centered">${result.data.depersonalization}</p>
+                    <p class="centered">Чем выше этот показатель, тем больше выражена деперсонализация (максимальное значение показателя - 30 баллов). Значения от 0 до 5 баллов - низкая деперсонализация, от 6 до 10 - средняя, от 11 до 30 -  высокий уровень деперсонализации. Деперсонализация проявляется в эмоциональном отстранении и безразличии, в уменьшении количества контактов по работе, формальном выполнении профессиональных обязанностей без личностной включенности и сопереживания, в раздражительности и холодности по отношению к окружающим.</p>
                 </div>
         
-                <div class="d-table-two-column">
-                    <p class="centered centered-text">Редукция профессиональных достижений </p>
+                <div class="d-table-row">
+                    <p class="ver-center">Редукция профессиональных достижений</p>
                     <p class="centered">${result.data.reductionProfessionalism}</p>
+                    <p class="centered">Отражает степень удовлетворенности человека собой как личностью и как профессионалом. Чем меньше данный показатель, тем хуже (здесь работает обратная зависимость в отличие от других показателей). Неудовлетворительное значение этого показателя (это значения  до 30 баллов) отражает тенденцию к негативной оценке своей компетентности и продуктивности, недовольству собой, к снижению профессиональной мотивации и уверенности в себе. Если значения этого показателя 37 баллов и больше, то можно говорить о том, что редукции профессиональных достижений нет. Значения от 31 до 36 говорят о среднем уровне редукции своих достижений.</p>
                 </div>
         
-                <div class="d-table-two-column d-table-row_last">
-                    <p class="centered centered-text">Общий индекс выгорания</p>
+                <div class="d-table-row d-table-row_last">
+                    <p class="ver-center">Общий индекс выгорания</p>
                     <p class="centered">${result.data.burnout}</p>
+                    <p class="centered">Данный показатель может принимать значения от 0 (нет выгорания) до 1 (максимально выраженное выгорание). Чем ближе значение к 1, тем более выражено выгорание.</p>
                 </div>
             </div>
         `)
