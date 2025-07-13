@@ -1,0 +1,29 @@
+/* Обвертка модального окна */
+#manager-edit-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #d9d9d988;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5; /* Выше навигации */
+}
+
+/* Вынес повторяющиеся элементы в manager-modal.css */
+
+#manager-edit-wrapper .manager-modal__buttons {
+    margin-top: 8px;
+}
+
+/* Изначально кнопка копирования пароля скрыта */
+#manager-edit__copy-password {
+    display: none;
+}
+
+#manager-edit-error {
+    margin-bottom: -8px;
+}

@@ -1,0 +1,66 @@
+body {
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 134%;
+
+    color: var(--h-title);
+}
+
+h3 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 132%;
+}
+
+p, .p1 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 400;
+    font-size: 20px; /* На этой странице 20px вместо 18px */
+    line-height: 112%; /* На этой странице 112% вместо 21px */
+}
+
+.p1-strong {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 112%;
+
+    color: var(--border);
+}
+
+.p2 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 112%;
+    color: #000000;
+}
+
+.p2-strong {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 112%;
+    color: var(--p-cyan);
+}
+
+.p-gray {
+    color: var(--p-gray);
+}
+
+.p-cut {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden {
+    display: none;
+}

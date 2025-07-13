@@ -1,0 +1,79 @@
+/* Обновление изменяющее список специалистов */
+#container-managers .form-title {
+    gap: 70px;
+}
+
+/* Заголовок с кнопок добавления */
+.container-managers__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+/* Кнопка фильтра */
+.container-managers__title img {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+
+    opacity: .7;
+    transition: .15s all;
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .container-managers__title img:hover {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .container-managers__title img {
+        opacity: 1;
+    }
+}
+
+
+#container-managers .content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Блок с информацией о менеджере */
+.manager-container {
+    padding: 15px 56px;
+    border-bottom: 1px solid #bd92ce;
+}
+
+.manager-container.hide {
+    display: none;
+}
+
+.manager-container.blocked > p {
+    color: #F40B0B;
+}
+
+/* Кнопки Редактировать и Диагностики */
+.manager-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.manager-buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff !important;
+}
+
+.manager-buttons button img {
+    width: 20px;
+    height: 20px;
+}

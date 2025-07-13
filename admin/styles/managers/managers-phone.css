@@ -1,0 +1,7 @@
+/* Обновление изменяющее список специалистов */
+@media screen and (max-width: 1000px) {
+    #container-managers .form-title {
+        justify-content: space-between;
+        gap: 12px;
+    }
+}

@@ -1,0 +1,115 @@
+@media screen and (max-width: 1000px) {
+    #top-left-logo {
+        width: 100px;
+        top: 24px;
+        left: 24px;
+        z-index: 4; /* Выше навигации */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    article {
+        width: min(1440px, 100%); /* Ширина 1440px или 100% при сужении */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        
+        margin: 0 auto; /* По центру страницы */
+    }
+
+    section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+
+        box-sizing: border-box;
+        padding: 100px 10px 70px 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* Контейнер результатов */
+    .container, .container-table {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        border-radius: 10px;
+        border: 1px solid var(--border);
+    }
+
+    /* Заголовок */
+    .title {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 0px;
+
+        color: #BD92CE;
+        font-weight: 500;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .weight-max-pc {
+        display: none;
+    }
+
+    .weight-max-phone {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* Первая строка с 2 инпутами */
+    .d-values-row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 30px;
+
+        padding: 30px;
+    }
+
+    /* Вертикальный блок с инпутом и текстом */
+    .d-values-input-block {
+        width: 100%;
+    }
+
+
+    /* Контент диагностики */
+    .d-values-content {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        box-sizing: border-box;
+        padding: 0px 30px 30px 30px;
+    }
+}
+
+/* Информация о таблицах переходит вертикально */
+@media screen and (max-width: 1250px) {
+    .container-table {
+        margin-top: 290px;
+    }
+
+    .d-table-info {
+        top: -290px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width: 275px) {
+    .d-table-info {
+        width: 100%;
+    }
+}

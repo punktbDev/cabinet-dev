@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>Личный кабинет</title>
+
+    <!-- Отключаем кеширование -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <link rel="stylesheet" href="./global/global.css">
+    <link rel="stylesheet" href="./cabinet/styles/style.css">
+    <link rel="stylesheet" href="./cabinet/styles/main.css">
+    <link rel="stylesheet" href="./cabinet/styles/page.css">
+    <link rel="stylesheet" href="./cabinet/styles/logo.css">
+    <link rel="stylesheet" href="./cabinet/styles/filters.css">
+    <link rel="stylesheet" href="./cabinet/styles/access.css">
+    <link rel="stylesheet" href="./cabinet/styles/phone.css">
+</head>
+<body>
+    <script src="./cabinet/scripts/auth.js"></script>
+    
+    <article>
+        <div id="top-left-logo">
+            <img src="https://static.tildacdn.com/tild6630-3237-4638-a534-313664333931/___.svg" alt="logo">
+        </div>
+        
+        <aside class="show">
+            <nav>
+                <h2>Личный кабинет</h2>
+                <li>
+                    <ul class="nav-button active" id="button-profile">
+                        <img src="https://sun9-59.userapi.com/impg/wqeE0urBpsTBq0Me52yyTVY9HrIuszyWSBcC9g/JfPUfVO0uTc.jpg?size=40x40&quality=96&sign=7118e4357a1c62fbc95e442404d3b6e3&type=album" alt="icon">
+                        <p>Мой профиль</p>
+                    </ul>
+
+                    <ul class="nav-button" id="button-clients">
+                        <img src="https://sun9-18.userapi.com/impg/1r9WLUtoQXqKa68W-wQgX5CE7aBhMwdgcHWXJA/y0TN0gwaAcY.jpg?size=40x40&quality=96&sign=71f7b3a984b39866688f941d3caffb7f&type=album" alt="icon">
+                        <p>Клиенты <span id="clients-count"></span></p>
+                    </ul>
+
+                    <ul class="nav-button" id="button-diagnostics">
+                        <img src="https://sun9-69.userapi.com/impg/1HeX6bKsvGYfBdlaHTnO55bagoCykLor_AQqzg/cx8IsMpi4BA.jpg?size=40x40&quality=96&sign=96108686bbd8371a82739c77de83fa05&type=album" alt="icon">
+                        <p>Диагностики</p>
+                    </ul>
+
+                    <ul class="nav-button" id="button-archive">
+                        <img src="https://sun9-38.userapi.com/impg/31fXj_bw27r80XONzOal2PdJNVc_VZHGp41QaA/8ZKIlBzeYWI.jpg?size=40x40&quality=96&sign=38e9aaafa5af233fc9d7af5697475e22&type=album" alt="icon">
+                        <p>Архив клиентов</p>
+                    </ul>
+
+                    <ul class="nav-button" id="profile-exit">
+                        <h3>Выход</h3>
+                    </ul>
+                </li>
+            </nav>
+        </aside>
+        <section>
+            <!-- Кнопка навигации -->
+            <button id="nav-burger">
+                <img src="https://sun9-24.userapi.com/impg/pyBLBVZoxTbXm7uCYmaozA9PQvVUb4GayeB9EA/aOYuL2hWMaU.jpg?size=18x13&quality=96&sign=d09497b1dd17836f8a6b7689eacf91f5&type=album" alt="burger">
+            </button>
+
+            <div class="profile">
+                <p id="user-name"></p>
+            </div>
+            
+            <!-- Мой профиль -->
+            <div class="container" id="container-profile">
+                <div class="form-title">
+                    <img class="container-back" src="https://sun9-64.userapi.com/impg/rUA7pf4L-OYqslHxsRdFexaqvJHatedm7gem4w/9cMlyT7_OCI.jpg?size=20x20&quality=96&sign=b0f6cc6229f18413c69e04a77fa729cc&type=album" alt="back">
+                    <p class="p1-strong">Контактная информация</p>
+                </div>
+
+                <form class="content" id="profile-form">
+                    <div class="input-block">
+                        <p>Имя</p>
+                        <input class="p1" type="text" id="profile-name" name="profile-name" minlength="1" maxlength="100" required>
+                    </div>
+
+                    <div class="input-block">
+                        <p>Фамилия</p>
+                        <input class="p1" type="text" id="profile-surname" name="profile-surname" minlength="1" maxlength="100" required>
+                    </div>
+
+                    <div class="input-block">
+                        <p>Телефон</p>
+                        <input class="p1" type="phone" id="profile-phone" name="profile-phone" minlength="1" maxlength="100" required>
+                    </div>
+
+                    <div class="input-block">
+                        <p>Email</p>
+                        <input class="p1" type="email" id="profile-email" name="profile-email" minlength="1" maxlength="100" required>
+                    </div>
+
+                    <div class="button-wrapper">
+                        <button class="p1" id="profile-save" type="submit" disabled>Сохранить</button>
+                    </div>
+                </form>
+
+                <div class="form-title">
+                    <p class="p1-strong">Обновить пароль</p>
+                </div>
+
+                <form class="content" id="password-form">
+                    <div class="input-block">
+                        <p>Текущий пароль</p>
+                        <div class="password-input">
+                            <input class="p1" type="password" id="password-old" name="password-old" minlength="8" maxlength="64" required>
+                            <img id="password-old-show" src="https://sun9-22.userapi.com/impg/dxnTH0YfbX30oSu95YgdwUBfTKQTNre2pR4spQ/RX2l5PyoxX4.jpg?size=20x20&quality=96&sign=97393bbce30213c930243aa178f6fbec&type=album" alt="show-password">
+                        </div>
+                    </div>
+
+                    <div class="input-block">
+                        <p>Новый пароль</p>
+                        <div class="password-input">
+                            <input class="p1" type="password" id="password-new" name="password-new" minlength="8" maxlength="64" required>
+                            <img id="password-new-show" src="https://sun9-22.userapi.com/impg/dxnTH0YfbX30oSu95YgdwUBfTKQTNre2pR4spQ/RX2l5PyoxX4.jpg?size=20x20&quality=96&sign=97393bbce30213c930243aa178f6fbec&type=album" alt="show-password">
+                        </div>
+                    </div>
+
+                    <div class="input-block">
+                        <p>Подтвердить пароль</p>
+                        <div class="password-input">
+                        <input class="p1" type="password" id="password-new-again" name="password-new-again" minlength="8" maxlength="64" required>
+                            <img id="password-new-again-show" src="https://sun9-22.userapi.com/impg/dxnTH0YfbX30oSu95YgdwUBfTKQTNre2pR4spQ/RX2l5PyoxX4.jpg?size=20x20&quality=96&sign=97393bbce30213c930243aa178f6fbec&type=album" alt="show-password">
+                        </div>
+                        <small>Мин. длина 8 символов</small>
+                    </div>
+
+                    <div class="button-wrapper button-wrapper_column">
+                        <button class="p1" id="password-save" type="submit" disabled>Сохранить</button>
+                        <p class="change-password__error">Ошибка: Используйте только англ. буквы, цифры и спецсимволы</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Клиенты -->
+            <div class="container hidden" id="container-clients">
+                <div class="form-title">
+                    <img class="container-back" src="https://sun9-64.userapi.com/impg/rUA7pf4L-OYqslHxsRdFexaqvJHatedm7gem4w/9cMlyT7_OCI.jpg?size=20x20&quality=96&sign=b0f6cc6229f18413c69e04a77fa729cc&type=album" alt="back">
+                    <div class="search-wrapper">
+                        <img src="https://sun9-37.userapi.com/impg/T8eXU9hjGKbidLoRfYcwhemoFYaUZqZhzReyOw/VDMiXpFuDTw.jpg?size=132x132&quality=96&sign=f14d29f2f37a347cc7152825a1841fa6&type=album" alt="search">
+                        <input type="text" class="p1" id="search-clients" placeholder="Поиск">
+                    </div>
+
+                    <img id="filter-clients" src="https://sun9-75.userapi.com/impg/u9cGeQ6ew7_9I_QhM5rgIdo_ut6tpqR8-tZXWA/gisscmRmz3I.jpg?size=25x25&quality=96&sign=d02409b63c2dc95d043f603c75a4b9e8&type=album" alt="filter">
+                </div>
+
+                <div class="content">
+                    <!-- <div class="card">
+                        <div class="card-left">
+                            <div class="card-left__dot-wrapper">
+                                <div class="card-left__dot"></div>
+                            </div>
+                            <div class="card-left__content">
+                                <p class="p-gray p-cut">12345678</p>
+                                <p class="p-cut">Маша Иванова</p>
+                            </div>
+                        </div>
+                        <div class="card-right__content">
+                            <p class="p-gray">31.05.2023</p>
+                            <p class="p-gray">12:45</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            
+            <div class="container hidden" id="container-open-card">
+                <div class="form-title">
+                    <img id="container-open-card-back" src="https://sun9-64.userapi.com/impg/rUA7pf4L-OYqslHxsRdFexaqvJHatedm7gem4w/9cMlyT7_OCI.jpg?size=20x20&quality=96&sign=b0f6cc6229f18413c69e04a77fa729cc&type=album" alt="back">
+                    <p class="p1-strong" id="open-card-name"></p>
+                    <img title="В архив" id="container-open-card-archive" src="https://sun9-40.userapi.com/impg/5COzMkBapQI7UoIlkAKDX1Ne3d8G6BeZtEAAiw/D8mR4ZRs61c.jpg?size=20x20&quality=96&sign=ac2a200bf0a8933a0bddc7bada7633e3&type=album" alt="to-archive">
+                </div>
+
+                <div class="content">
+                    <div class="input-block">
+                        <p id="open-card-phone-label">Телефон</p>
+                        <input class="p1 input-open-card" id="open-card-phone" readonly>
+                    </div>
+                    
+                    <div class="input-block">
+                        <p>Email</p>
+                        <input class="p1 input-open-card" id="open-card-email" readonly>
+                    </div>
+
+                    <div class="input-block">
+                        <button class="p1" id="open-card-conclusion">Заключение</button>
+                    </div>
+                </div>
+
+                <div class="form-title">
+                    <p class="p1-strong">Результаты теста
+                        <img title="Открыть все результаты" id="open-all-results" src="https://sun9-4.userapi.com/impg/vjUmcw2qOtSGVxlbWp8tf2kBPw3gSUq5AdwnRw/JI4GcZmEMjg.jpg?size=15x15&quality=96&sign=d5bbb57b1f289a6d242b537caf0bed5b&type=album" alt="open-all">
+                    </p>
+                </div>
+
+                <div class="results-container">
+                    <!-- <div class="result">
+                        <div class="input-block">
+                            <p class="p1-strong">Название диагностики</p>
+                            <input class="p1 input-open-card" readonly>
+                        </div>
+                        <div class="input-block">
+                            <p>Дата прохождения</p>
+                            <input class="p1 input-open-card" readonly>
+                        </div>
+                        <div class="input-block">
+                            <button class="p1">Узнать результаты</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Диагностики -->
+            <div class="container hidden" id="container-diagnostics">
+                <div class="form-title">
+                    <img class="container-back" src="https://sun9-64.userapi.com/impg/rUA7pf4L-OYqslHxsRdFexaqvJHatedm7gem4w/9cMlyT7_OCI.jpg?size=20x20&quality=96&sign=b0f6cc6229f18413c69e04a77fa729cc&type=album" alt="back">
+                    <div class="search-wrapper">
+                        <img src="https://sun9-37.userapi.com/impg/T8eXU9hjGKbidLoRfYcwhemoFYaUZqZhzReyOw/VDMiXpFuDTw.jpg?size=132x132&quality=96&sign=f14d29f2f37a347cc7152825a1841fa6&type=album" alt="search">
+                        <input type="text" class="p1" id="search-diagnostics" placeholder="Поиск">
+                    </div>
+                </div>
+
+                <!-- Список диагностик -->
+                <div class="content">
+                    <!-- <div class="diagnostic">
+                        <div class="diagnostic-title">
+                            <p>43 Профессии</p>
+                        </div>
+                        <div class="diagnostic-link">
+                            <p class="p-gray js-diagnostic">https://punkt-b.pro/43-professions?manager-id=</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Архив -->
+            <div class="container hidden" id="container-archive">
+                <div class="form-title">
+                    <img class="container-back" src="https://sun9-64.userapi.com/impg/rUA7pf4L-OYqslHxsRdFexaqvJHatedm7gem4w/9cMlyT7_OCI.jpg?size=20x20&quality=96&sign=b0f6cc6229f18413c69e04a77fa729cc&type=album" alt="back">
+                    <div class="search-wrapper">
+                        <img src="https://sun9-37.userapi.com/impg/T8eXU9hjGKbidLoRfYcwhemoFYaUZqZhzReyOw/VDMiXpFuDTw.jpg?size=132x132&quality=96&sign=f14d29f2f37a347cc7152825a1841fa6&type=album" alt="search">
+                        <input type="text" class="p1" id="search-archive" placeholder="Поиск">
+                    </div>
+
+                    <img id="filter-archive" src="https://sun9-75.userapi.com/impg/u9cGeQ6ew7_9I_QhM5rgIdo_ut6tpqR8-tZXWA/gisscmRmz3I.jpg?size=25x25&quality=96&sign=d02409b63c2dc95d043f603c75a4b9e8&type=album" alt="filter">
+                </div>
+
+                <div class="content">
+                    <!-- <div class="card">
+                        <div class="card-left">
+                            <div class="card-left__dot-wrapper">
+                                <div class="card-left__dot hidden"></div>
+                            </div>
+                            <div class="card-left__content">
+                                <p class="p-gray p-cut">12345678</p>
+                                <p class="p-cut">Маша Иванова</p>
+                            </div>
+                        </div>
+                        <div class="card-right__content">
+                            <p class="p-gray">31.05.2023</p>
+                            <p class="p-gray">12:45</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Модальное окно фильтра -->
+        <div id="filter-wrapper">
+            <div class="filter">
+                <div class="filter-title">
+                    <p class="p1-strong">Сортировка</p>
+                    <p id="filter-reset">Сбросить</p>
+                </div>
+                <div class="filter-content">
+                    <div class="filter-input">
+                        <input type="radio" id="filter-name" name="filter-type" value="name">
+                        <label for="filter-name" class="p1">По алфавиту</label>
+                    </div>
+
+                    <div class="filter-input">
+                        <input type="radio" id="filter-date" name="filter-type" value="date" checked>
+                        <label for="filter-date" class="p1">По дате</label>
+                    </div>
+
+                    <div class="filter-input-date">
+                        <input type="date" class="p1" id="filter-date-from" placeholder="От">
+                        <p>От</p>
+                    </div>
+                    <div class="filter-input-date">
+                        <input type="date" class="p1" id="filter-date-to" placeholder="До">
+                        <p>До</p>
+                    </div>
+                    
+                    <button class="p1" id="filter-submit">Применить</button>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Проверка доступа -->
+    <div class="access-wrapper">
+        <div class="access">
+            <h2 class="access__title">Доступ закрыт</h2>
+            <p class="access__text">Автоматизация подготовки заключения доступна при работе по Франшизе 3,0.<br><br>Узнать условия перехода на Франшизу 3.0. вы можете у наших менеджеров по тел. <span>+7 987 815 70 80</span></p>
+            <div class="access__bg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="88" height="177" viewBox="0 0 88 177" fill="none">
+                    <path d="M127.894 20.7646L127.894 20.7648C118.519 26.7212 106.123 22.1421 102.733 11.4966C98.2742 -2.49881 78.726 -2.49887 74.2668 11.4964C70.8772 22.1421 58.4815 26.7212 49.1063 20.7648L49.1061 20.7647C36.8446 12.9711 21.8153 25.637 27.3045 39.3178C31.4614 49.6604 24.8842 61.2274 13.9218 62.7652L13.9217 62.7652C-0.452604 64.78 -3.8786 84.2946 8.97888 91.1823C18.7531 96.4112 21.0324 109.551 13.6281 117.847L13.6278 117.848C3.85325 128.789 13.6974 145.919 27.855 142.836L27.8552 142.836C38.6818 140.481 48.7723 149.084 48.3636 160.246C47.825 174.982 66.2106 181.702 75.1129 170.113L75.113 170.113C81.9023 161.278 95.1004 161.278 101.889 170.113L101.889 170.113C110.79 181.702 129.178 174.982 128.636 160.246L128.636 160.246C128.231 149.084 138.318 140.481 149.145 142.836L149.145 142.836C163.303 145.919 173.147 128.789 163.372 117.848L163.372 117.847C155.968 109.551 158.249 96.4115 168.021 91.1825C180.879 84.2951 177.453 64.78 163.078 62.7652L163.217 61.7749L163.078 62.7652C152.116 61.2274 145.542 49.6605 149.698 39.3183C155.188 25.6376 140.153 12.9709 127.894 20.7646Z" stroke="#BE92CF" stroke-width="1"/>
+                </svg>
+            </div>
+            <img class="access__logo" src="https://static.tildacdn.com/tild6630-3237-4638-a534-313664333931/___.svg" alt="logo">
+            <button id="access__close">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#9B7AA7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="./global/config.js"></script>
+    <script src="./cabinet/scripts/api.js"></script>
+    <script src="./cabinet/scripts/nav-menu.js"></script>
+    <script src="./cabinet/scripts/inputError.js"></script>
+    <script src="./cabinet/scripts/render.js"></script>
+    <script src="./cabinet/scripts/buttons.js"></script>
+    <script src="./cabinet/scripts/filters.js"></script>
+    <script src="./cabinet/scripts/openResults.js"></script>
+    <script src="./cabinet/scripts/accessModal.js"></script>
+</body>
+</html>

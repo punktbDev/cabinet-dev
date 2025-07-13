@@ -1,0 +1,83 @@
+article {
+    width: min(1440px, 100%); /* Ширина 1440px или 100% при сужении */
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    
+    margin: 0 auto; /* По центру страницы */
+}
+
+aside {
+    width: 40%;
+}
+
+aside nav {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 100px;
+
+    margin-top: 145px;
+}
+
+
+nav li {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    margin-top: 36px;
+}
+
+.nav-button {
+    width: 300px;
+    height: 40px;
+    padding: 0 !important;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    
+
+    transition: .15s all;
+    cursor: pointer;
+}
+
+.nav-button:hover, .nav-button:active {
+    color: var(--p-cyan);
+}
+
+.nav-button:not(:first-child) {
+    margin-top: 36px;
+}
+
+.nav-button:last-child {
+    height: 32px;
+}
+
+.nav-button.active {
+    color: var(--p-cyan);
+}
+
+
+/* Текст после основного текста кнопки (Кол-во заявок) */
+.nav-button p span {
+    color: #F1CD21;
+    margin-left: 22px;
+}
+
+.nav-button img {
+    width: 40px;
+    height: 40px;
+}
+
+section {
+    width: 60%;
+    box-sizing: border-box;
+    padding-right: 100px;
+}

@@ -1,0 +1,91 @@
+body {
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 134%;
+
+    color: var(--h-title);
+}
+
+h3 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 132%;
+}
+
+p, .p1 {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 400;
+    font-size: 20px; /* На этой странице 20px вместо 18px */
+    line-height: 112%; /* На этой странице 112% вместо 21px */
+}
+
+.p1-strong {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 112%;
+
+    color: var(--p-cyan);
+}
+
+.p-gray {
+    color: var(--p-gray);
+}
+
+.p-cut {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Стиль для ошибки инпута */
+input.error {
+    animation: inputError 2s ease-in;
+}
+
+/* Анимация ошибки */
+@keyframes inputError {
+    0% {
+        border: 1px solid var(--border);
+    }
+
+    2% {
+        border: 1px solid #F40B0B;
+    }
+
+    100% {
+        border: 1px solid var(--border);
+    }
+}
+
+/* Текст минимальной длины пароля */
+#password-form .input-block {
+    position: relative;
+}
+
+#password-form .input-block small {
+    width: 135px;
+    position: absolute;
+    top: 69px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+small {
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 112%;
+}

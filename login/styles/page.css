@@ -1,0 +1,36 @@
+article {
+    width: min(1440px, 100%); /* Ширина 1440px или 100% при сужении */
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    
+    margin: 0 auto; /* По центру страницы */
+}
+
+
+aside {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+aside h2 {
+    width: 404px;
+    
+    margin-top: 68px;
+    margin-right: 124px;
+}
+
+aside h2 span {
+    color: var(--p-cyan);
+}
+
+section {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

@@ -1,0 +1,463 @@
+/* admin css phone */
+@media screen and (max-width: 1000px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+
+    p, .p1 {
+        font-size: 16px;
+        line-height: 112%;
+    }
+
+    .p1-strong {
+        font-size: 16px;
+        line-height: 112%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #top-left-logo {
+        width: 100px;
+        top: 24px;
+        left: 24px;
+        z-index: 4; /* Выше навигации */
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    article {
+        flex-direction: column;
+        justify-content: flex-start;
+
+        height: 100%;
+        padding-bottom: 70px;
+
+        overflow: visible;
+    }
+
+    aside {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #ffffff;
+        z-index: 3; /* Выше модального окна */
+
+        display: none;
+    }
+
+    aside.show {
+        display: block;
+    }
+
+    aside nav {
+        width: 100%;
+        height: 100%;
+        padding: 0 25px;
+
+        margin: 155px 0 0 0;
+    }
+
+
+    nav li {
+        margin-top: 30px;
+    }
+
+    .nav-button {
+        width: 280px;
+        height: 24px;
+        gap: 25px;
+    }
+
+    .nav-button:not(:first-child) {
+        margin-top: 24px;
+    }
+
+    .nav-button:last-child {
+        height: 24px;
+    }
+
+    .nav-button:last-child h3 {
+        font-size: 24px;
+    }
+
+    .nav-button p {
+        font-size: 20px;
+    }
+
+    /* Текст после основного текста кнопки (Кол-во заявок) */
+    .nav-button p span {
+        margin-left: 11px;
+        font-size: 20px;
+    }
+
+    .nav-button img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    section {
+        width: 100%;
+        padding: 0 25px;
+        position: relative;
+
+        margin: 0;
+    }
+
+    /* Профиль не показываем */
+    .profile {
+        display: none;
+    }
+
+    /* Контейнер вкладки */
+    .container {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        
+        margin: 0;
+        margin-top: 140px;
+    }
+    
+
+    /* Заголовок формы */
+    .form-title {
+        width: 100%;
+    }
+
+
+    /* Только заголовок */
+    #container-profile .form-title,
+    #container-open-card .form-title,
+    #container-managers .form-title {
+        height: 56px;
+
+    }
+
+    /* В других вкладках поле поиска  */
+    #container-clients .form-title,
+    #container-diagnostics .form-title,
+    #container-archive .form-title {
+        height: 56px;
+    }
+
+
+    /* Форма профиля и пароля */
+    #container-profile .content, #container-open-card .content {
+        padding: 20px 30px;
+
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+
+    /* В открытой карточке кнопка назад */
+    #container-open-card-back, .container-back {
+        padding: 0;
+
+        left: 12px;
+        top: 18px;
+    }
+
+    /* В открытой карточке кнопка в архив */
+    #container-open-card-archive {
+        padding: 0;
+
+        right: 12px;
+        top: 18px;
+    }
+
+
+    .input-block {
+        width: 100%;
+        height: 60px;
+    }
+
+    .input-block input {
+        height: 30px;
+        padding: 0 8px;
+        border-radius: 5px;
+
+        margin-top: 4px; /* Отступ от текста */
+    }
+
+
+    /* Поле с паролем */
+    .password-input {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+
+        margin-top: 4px; /* Отступ от текста */
+    }
+
+    .password-input input {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        margin: 0px;
+
+        padding-left: 8px;
+        padding-right: 36px; /* Отступ от картинки (8px + 20px + 8px) */
+    }
+
+    /* Кнопка просмотра пароля */
+    .password-input img {
+        width: 20px;
+        height: 20px;
+
+        right: 8px;
+        top: 5px;
+    }
+
+    .button-wrapper {
+        width: 100%;
+
+        margin-top: 12px;
+    }
+
+    button {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+
+    /* Бургер навигации */
+    #nav-burger {
+        display: block;
+        /* width: 18px; */
+        /* height: 12px; */
+        width: 27px;
+        height: 18px;
+
+        padding: 0;
+        margin: 0;
+
+        position: absolute;
+        top: 32px;
+        right: 25px;
+
+        border-radius: 0;
+        background: none;
+        box-sizing: content-box;
+        z-index: 4;
+    }
+
+    #nav-burger img {
+        /* width: 18px; */
+        /* height: 12px; */
+        width: 27px;
+        height: 18px;
+    }
+
+
+    /* Мобильная кнопка возвращение в навигацию отображается */
+    .container-back {
+        display: block;
+    }
+
+
+    /* Поиск */
+    .search-wrapper {
+        width: 175px;
+        height: 30px;
+
+        margin-left: 40px;
+    }
+
+    .search-wrapper input {
+        padding-left: 39px; /* Отступ от картинки (15px + 16px + 8px) */
+        padding-right: 8px;
+    }
+
+    /* Кнопка в поиске */
+    .search-wrapper img {
+        width: 16px;
+        height: 16px;
+
+        left: 15px;
+        top: 7px;
+    }
+
+    /* Фиксированная высота контента для скрола */
+    #container-clients .content,
+    #container-archive .content,
+    #container-diagnostics .content {
+        height: 420px;
+    }
+
+
+
+    /* Карточка */
+    .card {
+        height: 60px;
+        padding: 13px 16px;
+    }
+
+    /* Текст внутри краточки больше */
+    .card p {
+        font-size: 16px;
+        line-height: 112%;
+    }
+
+    .card-left {
+        width: 70%;
+    }
+
+    .card-left__content {
+        width: calc(100% - 8px - 15px);
+
+        margin-left: 15px;
+    }
+
+    .card-right__content {
+        width: 30%;
+    }
+
+
+    
+    /* Контейнер со всеми результатами */
+    .results-container {
+        height: 360px;
+    }
+
+    /* Результат */
+    .result {
+        height: auto;
+        padding: 20px 30px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .result .p1-strong {
+        font-size: 16px;
+        line-height: 112%;
+    }
+
+    /* Кнопка в открытой карточке */
+    .input-block button {
+        height: 30px;
+    }
+
+
+
+    /* Диагностики */
+    .diagnostic {
+        min-height: 60px;
+    }
+
+    .diagnostic .diagnostic-title {
+        width: 40%;
+        padding: 0 8px;
+    }
+
+    /* Бордер слева от параграфа с ссылкой */
+    .diagnostic-link {
+        width: 80%;
+        padding: 0 4px;
+    }
+
+    .diagnostic-link p, .diagnostic-title p {
+        font-size: 16px;
+    }
+    
+    .diagnostic-copy {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    /* Кнопка фильтра */
+    #filter-clients, #filter-archive {
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin-left: 14px;
+    }
+
+    .filter {
+        width: 220px;
+    }
+
+    .filter-title {
+        padding: 24px 24px 0 30px;
+    }
+
+    .filter-title p {
+        font-size: 12px;
+        line-height: 112%;
+    }
+
+    .filter-content {
+        padding: 24px;
+        gap: 12px;
+    }
+
+    .filter-input label {
+        font-size: 12px;
+        line-height: 112%;
+        margin-left: 8px;
+    }
+
+    input[type="radio"] {
+        width: 14px;
+        height: 14px;
+    }
+
+    .filter-input-date {
+        height: 28px;
+    }
+
+    .filter-input-date p {
+        top: 7px;
+        left: 8px;
+        font-size: 12px;
+        line-height: 112%;
+    }
+
+    #filter-date-from, #filter-date-to {
+        padding: 0px 8px 0px 26px;
+        font-size: 12px;
+
+
+        border-radius: 5px;
+    }
+
+    #filter-submit {
+        height: 30px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+
+    #manager-list {
+        height: 30px;
+    }
+
+    /* Блокировка скрола в навигации */
+    .no-scroll {
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #password-form .input-block small {
+        top: 66px;
+    }
+
+    .change-password__error {
+        margin-top: 8px;
+    }
+}

@@ -1,0 +1,507 @@
+/* Профиль сверху справа */
+.profile {
+    height: 60px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+
+    margin: 32px 0 33px auto; /* К правому краю + отступы */
+}
+
+
+/* Контейнер вкладки */
+.container {
+    width: 660px;
+    height: 636px;
+    box-sizing: border-box;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    
+    margin-left: auto; /* К правому краю */
+}
+
+
+/* Заголовок формы */
+.form-title {
+    width: 100%;
+    height: 75px;
+
+    box-sizing: border-box; /* Бордер внутри */
+    border-bottom: 1px solid var(--border);
+}
+
+/* Для множественных заголовков */
+.form-title:not(:first-child) {
+    border-top: 1px solid var(--border); /* Бордер сверху */
+}
+
+.form-title p {
+    text-align: center;
+}
+
+/* Центрированный текст внутри заголовков во вкладке "Мой профиль"  */
+#container-profile .form-title,
+#container-open-card .form-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+/* В других вкладках поле поиска  */
+#container-clients .form-title,
+#container-diagnostics .form-title,
+#container-archive .form-title {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+/* Во вкладке "Мой профиль" текст в заголовке капсом */
+.form-title .p1-strong {
+    text-transform: uppercase; 
+}
+
+/* В открытой карточке кнопка назад */
+#container-open-card-back, .container-back {
+    width: 20px;
+    height: 20px;
+    padding: 12px 16px;
+    position: absolute;
+
+    left: calc(40px - 16px); /* Минус отступ от паддинга */
+    top: calc(24px - 12px); /* Минус отступ от паддинга */
+    opacity: .5;
+    transition: .15s all;
+
+    cursor: pointer;
+}
+
+/* В открытой карточке кнопка в архив */
+#container-open-card-archive {
+    width: 20px;
+    height: 20px;
+    padding: 12px 16px;
+    position: absolute;
+
+    right: calc(40px - 16px); /* Минус отступ от паддинга */
+    top: calc(24px - 12px); /* Минус отступ от паддинга */
+    opacity: .5;
+    transition: .15s all;
+
+    cursor: pointer;
+}
+
+
+/* Мобильная кнопка возвращение в навигацию */
+.container-back {
+    display: none;
+}
+
+@media (hover: hover) {
+    #container-open-card-back:hover,
+    #container-open-card-archive:hover,
+    .container-back:hover {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    #container-open-card-back:hover,
+    #container-open-card-archive:hover,
+    .container-back:hover {
+        opacity: 1;
+    }
+}
+
+
+/* Форма профиля и пароля */
+#container-profile .content, #container-open-card .content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px 0 18px 54px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 17px 52px;
+}
+
+#container-open-card .content {
+    padding-left: 0px;
+    justify-content: center;
+}
+
+.input-block {
+    width: 250px;
+    height: 66px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.input-block input {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    margin-top: 4px; /* Отступ от текста */
+}
+
+
+/* Поле с паролем */
+.password-input {
+    width: 250px;
+    height: 40px;
+    box-sizing: border-box;
+    position: relative;
+
+    border-radius: 10px;
+
+    margin-top: 4px; /* Отступ от текста */
+}
+
+.password-input input {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    margin: 0px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    padding-left: 12px;
+    padding-right: 52px; /* Отступ от картинки (20px + 20px + 12px) */
+}
+
+/* Кнопка просмотра пароля */
+.password-input img {
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    right: 20px;
+    top: 10px;
+
+    opacity: .5;
+    cursor: pointer;
+    transition: .15s all;
+}
+
+@media (hover: hover) {
+    .password-input img:hover {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .password-input img {
+        opacity: 1;
+    }
+}
+
+
+/* Кнопка сохранить профиль и пароль */
+.button-wrapper {
+    flex-basis: 100%; /* Принудительный перенос строки */
+    display: flex;
+    justify-content: center;
+}
+
+.button-wrapper_column {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+button {
+    width: 300px;
+    height: 40px;
+    box-sizing: border-box;
+    
+    background: var(--border);
+    border-radius: 10px;
+    border: none;
+    outline: none;       
+    
+    transition: .15s all;
+    cursor: pointer;
+    color: #000000 !important;
+}
+
+@media (hover: hover) {
+    button:hover {
+        background: #000000;
+        color: #FFFFFF !important;
+    }
+}
+
+button:disabled {
+    background: #d1aedf;
+    color: #313131 !important;
+    cursor: not-allowed;
+}
+
+.change-password__error {
+    display: none;
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+}
+
+
+/* Поиск */
+.search-wrapper {
+    width: 300px;
+    height: 40px;
+    box-sizing: border-box;
+    position: relative;
+
+    border-radius: 10px;
+
+    margin-left: 54px;
+}
+
+.search-wrapper input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 48px; /* Отступ от картинки */
+    padding-right: 12px;
+
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: var(--input-bg);
+}
+
+.search-wrapper input::placeholder {
+    color: var(--input-placeholder);
+}
+
+/* Кнопка в поиске */
+.search-wrapper img {
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    left: 20px;
+    top: 10px;
+
+    opacity: .5;
+}
+
+/* Фиксированная высота контента для скролла */
+#container-clients .content,
+#container-archive .content,
+#container-diagnostics .content {
+    width: 100%;
+    height: 560px;
+    overflow: overlay;
+}
+
+/* Скролл */
+#container-clients .content::-webkit-scrollbar,
+#container-archive .content::-webkit-scrollbar,
+#container-diagnostics .content::-webkit-scrollbar,
+.results-container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+/* Подложка скролла в цвет фона */
+#container-clients .content::-webkit-scrollbar-track,
+#container-archive .content::-webkit-scrollbar-track,
+#container-diagnostics .content::-webkit-scrollbar-track,
+.results-container::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #00000000;
+}
+
+/* Скролл цвета основного блока */
+#container-clients .content::-webkit-scrollbar-thumb,
+#container-archive .content::-webkit-scrollbar-thumb,
+#container-diagnostics .content::-webkit-scrollbar-thumb,
+.results-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--input-bg);
+}
+
+
+/* Карточка */
+.card {
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    padding: 14px 62px 14px 70px;
+
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+
+    cursor: pointer;
+}
+
+.card-left {
+    display: flex;
+    height: 100%;
+}
+
+.card-left__dot-wrapper {
+    width: 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.card-left__dot {
+    width: 8px;
+    height: 8px;
+    
+    border-radius: 8px;
+    background: var(--dot-bg);
+}
+
+.card-left__content {
+    width: 375px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+}
+
+.card-right__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-right__content p {
+    text-align: center;
+}
+
+
+/* Контейнер со всеми результатами */
+.results-container {
+    width: 100%;
+    height: 300px;
+    overflow: overlay;
+}
+
+/* Результат */
+.result {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 17px 52px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+/* Инпуты в открытой карточке */
+.input-open-card {
+    text-align: center;
+    color: var(--p-gray);
+}
+
+/* Кнопка в открытой карточке */
+.input-block button {
+    width: 100%;
+    height: 40px;
+}
+
+.result .p1-strong {
+    color: #000000;
+}
+
+
+/* Диагностики */
+.diagnostic {
+    width: 100%;
+    min-height: 80px;
+    box-sizing: border-box;
+
+    display: flex;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.diagnostic .diagnostic-title {
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+}
+
+/* Бордер слева от параграфа с ссылкой */
+.diagnostic-link {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+
+    border-left: 1px solid var(--border);
+
+    position: relative;
+}
+
+.diagnostic-link p {
+    font-size: 18px;
+    word-break: break-word;
+}
+
+.diagnostic-title p {
+    word-break: break-word;
+    text-align: center;
+}
+
+.diagnostic-link-available {
+    width: 100%;
+}
+
+/* Кнопка копирования ссылки */
+.diagnostic-copy {
+    width: 25px;
+    height: 25px;
+    padding: 8px;
+
+    opacity: .5;
+    transition: .15s all;
+
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .diagnostic-copy:hover {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .diagnostic-copy {
+        opacity: 1;
+    }
+}

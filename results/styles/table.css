@@ -1,0 +1,268 @@
+/* 43 Профессии */
+/* Мои потребности (Детский / взрослый) */
+/* Исследование ценностей */
+/* Учебная мотивация */
+
+/* Все табличные результаты */
+
+.d-table-row {
+    width: 100%;
+    height: auto;
+    display: flex;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border);
+}
+
+.d-table-row p {
+    font-size: 12px;
+    
+    box-sizing: border-box;
+    padding: 10px 4px 10px 4px;
+}
+
+/* border слева для второго и третьего текста в строке */
+.d-table-row p:not(:first-of-type) {
+    border-left: 1px solid var(--border);
+}
+
+.d-table-row p:nth-of-type(1) {
+    width: 30%;
+
+    word-break: break-word;
+}
+
+.d-table-row p:nth-of-type(2) {
+    width: 20%;
+}
+
+.d-table-row p:nth-of-type(3) {
+    width: 50%;
+}
+
+/* Первая строка с синими буквами */
+.d-table-row_first {
+    height: 60px;
+}
+
+.d-table-row_first p {
+    color: var(--p-cyan);
+    font-weight: 500;
+}
+
+
+/* Последняя строка */
+.d-table-doublerow {
+    width: 100%;
+    display: flex;
+}
+
+.d-table-doublerow p {
+    font-size: 12px;
+    
+    box-sizing: border-box;
+    padding: 10px 4px 10px 4px;
+}
+
+.d-table-doublerow p:nth-of-type(1) {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid var(--border);
+}
+
+.d-table-doublerow p:nth-of-type(2) {
+    width: 50%;
+}
+
+
+/* Последняя строка */
+.d-table-row_last {
+    border-bottom: none !important;
+}
+
+
+/* Для Учебная мотивация */
+.d-table-two-column {
+    width: 100%;
+    display: flex;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border);
+}
+
+.d-table-two-column p {
+    font-size: 12px;
+    
+    box-sizing: border-box;
+    padding: 26px 4px 26px 4px;
+}
+
+.d-table-two-column p:nth-of-type(1) {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid var(--border);
+}
+
+.d-table-two-column p:nth-of-type(2) {
+    width: 50%;
+}
+
+
+/* Блок с информацией */
+.d-table-info {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    position: absolute;
+    top: 0;
+    left: -292px;
+}
+
+/* Вертикальный блок с инпутом и текстом */
+.d-table-input-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.d-table-input-block p {
+    font-size: 20px;
+
+    word-break: break-word;
+}
+
+/* Название диагностики и дата */
+.d-table-input-block input {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+
+    box-sizing: border-box;
+    padding: 9px;
+
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    color: #808080;
+    font-family: 'Roboto', Sans-Serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 112%;
+}
+
+
+/* 10 Любимых дел (Детский / взрослый) */
+/* Идеальная работа (Детский / взрослый) */
+/* Антирейтинг профессий (Детский / взрослый) */
+/* Интервью (Детский / взрослый) */
+/* 8 Кадров (Детский / взрослый) */
+
+/* Все резульатты кроме таблиц в виде колонны с определенным кол-вом значений и динамичной высотой */
+
+
+/* Первая строка с 2 инпутами */
+.d-values-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding: 30px 54px 42px 54px;
+}
+
+/* Вертикальный блок с инпутом и текстом */
+.d-values-input-block {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.d-values-input-block p {
+    font-size: 20px;
+
+    word-break: break-word;
+}
+
+/* Название диагностики и дата */
+.d-values-input-block input {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+
+    box-sizing: border-box;
+    padding: 9px;
+
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    color: #808080;
+    font-family: 'Roboto', Sans-Serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 112%;
+}
+
+
+/* Контент диагностики */
+.d-values-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    box-sizing: border-box;
+    padding: 0px 54px 20px 54px;
+}
+
+.d-values-input-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.d-values-input-wrapper h3 {
+    width: 100%;
+    height: auto;
+
+    box-sizing: border-box;
+    padding: 10px 10px 10px 40px;
+
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    color: #000000;
+    font-family: 'Roboto', Sans-Serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 112%;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.d-values-input-wrapper p {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+
+    color: #000000;
+    font-family: 'Roboto', Sans-Serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 112%;
+}
+
+
+
+.learning-motivation-level {
+    padding: 4px !important;
+}
