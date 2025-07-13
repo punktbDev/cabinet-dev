@@ -10,7 +10,8 @@ function renderEditManager(manager) {
     $("#manager-edit__show-password").show()
     $("#manager-edit-password").val("************") // Далее по нажатию кнопки отобразится пароль
 
-    $("#manager-edit-access").prop("checked", !manager.is_active);
+    $("#manager-edit-access").prop("checked", manager.is_full_access); // Если галочка стоит - есть полный доступ
+    $("#manager-edit-active").prop("checked", !manager.is_active); // Если галочка стоит - заблокирован
 }
 
 // Открытие модального окна с изменением менеджера
@@ -143,33 +144,25 @@ managerEditForm.addEventListener("submit", (event) => {
         editableManager.surname = managerSurname
     }
     
-    editableManager.is_active = !$("#manager-edit-access").is(":checked");
-
-    // let newManager = {
-    //     login: formEmail,
-    //     password: formPass,
-    //     name: managerName || "", // Если значение есть, то вставляем, иначе пустая строка
-    //     surname: managerSurname || "", // Если значение есть, то вставляем, иначе пустая строка
-    //     phone: "",
-    //     is_active: true,
-    //     is_admin: false
-    // }
+    editableManager.is_full_access = $("#manager-edit-access").is(":checked"); // Если галочка стоит - есть полный доступ
+    editableManager.is_active = !$("#manager-edit-active").is(":checked"); // Если галочка стоит - заблокирован
 
     console.log(editableManager);
-    return
 
     // Отключаем кнопку до окончания ответа
     const submitButton = $("#manager-edit__submit-button");
     submitButton.attr("disabled", "disabled");
 
-    // ПОМЕНЯТЬ API !!!!!!!!!!!!!!
-
-    // DBaddManager(newManager, (data) => {
-    //     submitButton.removeAttr("disabled");
-    //     renderManagers()
-    // }, (error) => {
-    //     // Если в итоге email не уникальный
-    //     submitButton.removeAttr("disabled");
-    //     return showError("#manager-edit-email", "Введенный email занят");
-    // })
+    DBeditManager(editableManager, (data) => {
+        // Включаем кнопку, выключаем модальное окно и рендерим менеджеров
+        $("#manager-edit-wrapper").css("display", "none")
+        submitButton.removeAttr("disabled")
+        renderManagers()
+    }, (error) => {
+        console.log(error);
+        
+        // Если в итоге email не уникальный
+        submitButton.removeAttr("disabled")
+        return showError("#manager-edit-email", "Введенный email занят");
+    })
 })

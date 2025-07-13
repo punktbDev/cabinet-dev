@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="./styles/managers/managers-phone.css">
     <link rel="stylesheet" href="./styles/managers/manager-modal.css">
     <link rel="stylesheet" href="./styles/managers/manager-modal-phone.css">
-    <link rel="stylesheet" href="./styles/managers/manager-add.css">
     <link rel="stylesheet" href="./styles/managers/manager-edit.css">
     <link rel="stylesheet" href="./styles/managers/manager-diagnostics.css">
 
@@ -357,121 +356,133 @@
         </div>
     
         <!-- Добавление менеджера -->
-        <div id="manager-add-wrapper">
+        <div class="manager-modal__wrapper" id="manager-add-wrapper">
             <div class="manager-modal">
-                <div class="manager-modal__title">
-                    <p class="p1-strong">Новый специалист</p>
-                    <img class="manager-modal__close-button" id="manager-add__close-button" src="./assets/close-modal.svg" alt="close-modal">
+                <div class="manager-modal__content">
+                    <div class="manager-modal__title">
+                        <p class="p1-strong">Новый специалист</p>
+                        <img class="manager-modal__close-button" id="manager-add__close-button" src="./assets/close-modal.svg" alt="close-modal">
+                    </div>
+    
+                    <form class="manager-modal__form" id="manager-add-form">
+                        <div class="manager-input">
+                            <label for="manager-add-name" class="p1">Имя Фамилия</label>
+                            <input type="text" id="manager-add-name" name="manager-add-name" minlength="1" maxlength="100" required>
+                        </div>
+                        <div class="manager-input">
+                            <label for="manager-add-email" class="p1">Email</label>
+                            <div class="manager-input__wrapper">
+                                <input type="email" id="manager-add-email" name="manager-add-email" minlength="1" maxlength="100" required>
+                                <img class="manager-input__wrapper-img" id="manager-add__insert-email" src="./assets/copy.svg" alt="insert" title="Вставить текст">
+                            </div>
+                        </div>
+                        <div class="manager-input">
+                            <label for="manager-add-password" class="p1">Пароль</label>
+                            <div class="manager-input__wrapper">
+                                <input type="text" id="manager-add-password" name="manager-add-password" minlength="8" maxlength="64" required>
+                                <img class="manager-input__wrapper-img" id="manager-add__generate-password" src="./assets/key.svg" alt="generate" title="Сгенерировать пароль">
+                            </div>
+                        </div>
+    
+                        <p class="manager-modal__error" id="manager-add-error">Ошибка:</p>
+    
+                        <div class="manager-modal__buttons">
+                            <button class="manager-modal__button-cancel" id="manager-add__cancel-button" type="reset">Отменить</button>
+                            <button class="manager-modal__button-submit" id="manager-add__submit-button" type="submit">Сохранить</button>
+                        </div>
+                    </form>
                 </div>
-
-                <form class="manager-modal__form" id="manager-add-form">
-                    <div class="manager-input">
-                        <label for="manager-add-name" class="p1">Имя Фамилия</label>
-                        <input type="text" id="manager-add-name" name="manager-add-name" minlength="1" maxlength="100" required>
-                    </div>
-                    <div class="manager-input">
-                        <label for="manager-add-email" class="p1">Email</label>
-                        <div class="manager-input__wrapper">
-                            <input type="email" id="manager-add-email" name="manager-add-email" minlength="1" maxlength="100" required>
-                            <img class="manager-input__wrapper-img" id="manager-add__insert-email" src="./assets/copy.svg" alt="insert" title="Вставить текст">
-                        </div>
-                    </div>
-                    <div class="manager-input">
-                        <label for="manager-add-password" class="p1">Пароль</label>
-                        <div class="manager-input__wrapper">
-                            <input type="text" id="manager-add-password" name="manager-add-password" minlength="8" maxlength="64" required>
-                            <img class="manager-input__wrapper-img" id="manager-add__generate-password" src="./assets/key.svg" alt="generate" title="Сгенерировать пароль">
-                        </div>
-                    </div>
-
-                    <p class="manager-modal__error" id="manager-add-error">Ошибка:</p>
-
-                    <div class="manager-modal__buttons">
-                        <button class="manager-modal__button-cancel" id="manager-add__cancel-button" type="reset">Отменить</button>
-                        <button class="manager-modal__button-submit" id="manager-add__submit-button" type="submit">Сохранить</button>
-                    </div>
-                </form>
             </div>
         </div>
 
         <!-- Изменение менеджера -->
-        <div id="manager-edit-wrapper">
+        <div class="manager-modal__wrapper" id="manager-edit-wrapper">
             <div class="manager-modal">
-                <div class="manager-modal__title">
-                    <p class="p1-strong">Профиль специалиста</p>
-                    <img class="manager-modal__close-button" id="manager-edit__close-button" src="./assets/close-modal.svg" alt="close-modal">
+                <div class="manager-modal__content">
+                    <div class="manager-modal__title">
+                        <p class="p1-strong">Профиль специалиста</p>
+                        <img class="manager-modal__close-button" id="manager-edit__close-button" src="./assets/close-modal.svg" alt="close-modal">
+                    </div>
+    
+                    <form class="manager-modal__form" id="manager-edit-form">
+                        <div class="manager-input">
+                            <label for="manager-edit-name" class="p1">Имя Фамилия</label>
+                            <div class="manager-input__wrapper">
+                                <input type="text" id="manager-edit-name" name="manager-edit-name" minlength="1" maxlength="100" required>
+                                <img class="manager-input__wrapper-img" id="manager-edit__copy-name" src="./assets/copy.svg" alt="copy" title="Скопировать текст">
+                            </div>
+                        </div>
+                        <div class="manager-input">
+                            <label for="manager-edit-email" class="p1">Email</label>
+                            <div class="manager-input__wrapper">
+                                <input type="email" id="manager-edit-email" name="manager-edit-email" minlength="1" maxlength="100" required>
+                                <img class="manager-input__wrapper-img" id="manager-edit__copy-email" src="./assets/copy.svg" alt="copy" title="Скопировать текст">
+                            </div>
+                        </div>
+                        <div class="manager-input">
+                            <label for="manager-edit-password" class="p1">Пароль</label>
+                            <div class="manager-input__wrapper">
+                                <input type="text" id="manager-edit-password" name="manager-edit-password" minlength="8" maxlength="64" readonly required>
+                                <img class="manager-input__wrapper-img" id="manager-edit__show-password" src="./assets/open-eye.svg" alt="show-password" title="Показать пароль">
+                                <img class="manager-input__wrapper-img" id="manager-edit__copy-password" src="./assets/copy.svg" alt="copy">
+                            </div>
+                        </div>
+                        <div class="manager-input">
+                            <label for="manager-edit-new-password" class="p1">Новый пароль</label>
+                            <input type="text" id="manager-edit-new-password" name="manager-edit-new-password" minlength="8" maxlength="64">
+                        </div>
+                        <div class="manager-input">
+                            <label for="manager-edit-password-again" class="p1">Подтвердить пароль</label>
+                            <input type="text" id="manager-edit-password-again" name="manager-edit-password-again" minlength="8" maxlength="64">
+                        </div>
+    
+                        <div class="manager-input__checkbox-wrapper">
+                            <input type="checkbox" id="manager-edit-access" name="manager-edit-access">
+                            <div class="manager-input-checkbox"></div>
+                            <label for="manager-edit-access" class="p1">Полная версия</label>
+                        </div>
+
+                        <div class="manager-input__checkbox-wrapper">
+                            <input type="checkbox" id="manager-edit-active" name="manager-edit-active">
+                            <div class="manager-input-checkbox"></div>
+                            <label for="manager-edit-active" class="p1">Закрыть доступ</label>
+                        </div>
+    
+                        <p class="manager-modal__error" id="manager-edit-error">Ошибка:</p>
+    
+                        <div class="manager-modal__buttons">
+                            <button class="manager-modal__button-cancel" id="manager-edit__cancel-button" type="reset">Отменить</button>
+                            <button class="manager-modal__button-submit" id="manager-edit__submit-button" type="submit">Сохранить</button>
+                        </div>
+                    </form>
                 </div>
-
-                <form class="manager-modal__form" id="manager-edit-form">
-                    <div class="manager-input">
-                        <label for="manager-edit-name" class="p1">Имя Фамилия</label>
-                        <div class="manager-input__wrapper">
-                            <input type="text" id="manager-edit-name" name="manager-edit-name" minlength="1" maxlength="100" required>
-                            <img class="manager-input__wrapper-img" id="manager-edit__copy-name" src="./assets/copy.svg" alt="copy" title="Скопировать текст">
-                        </div>
-                    </div>
-                    <div class="manager-input">
-                        <label for="manager-edit-email" class="p1">Email</label>
-                        <div class="manager-input__wrapper">
-                            <input type="email" id="manager-edit-email" name="manager-edit-email" minlength="1" maxlength="100" required>
-                            <img class="manager-input__wrapper-img" id="manager-edit__copy-email" src="./assets/copy.svg" alt="copy" title="Скопировать текст">
-                        </div>
-                    </div>
-                    <div class="manager-input">
-                        <label for="manager-edit-password" class="p1">Пароль</label>
-                        <div class="manager-input__wrapper">
-                            <input type="text" id="manager-edit-password" name="manager-edit-password" minlength="8" maxlength="64" readonly required>
-                            <img class="manager-input__wrapper-img" id="manager-edit__show-password" src="./assets/open-eye.svg" alt="show-password" title="Показать пароль">
-                            <img class="manager-input__wrapper-img" id="manager-edit__copy-password" src="./assets/copy.svg" alt="copy">
-                        </div>
-                    </div>
-                    <div class="manager-input">
-                        <label for="manager-edit-new-password" class="p1">Новый пароль</label>
-                        <input type="text" id="manager-edit-new-password" name="manager-edit-new-password" minlength="8" maxlength="64">
-                    </div>
-                    <div class="manager-input">
-                        <label for="manager-edit-password-again" class="p1">Подтвердить пароль</label>
-                        <input type="text" id="manager-edit-password-again" name="manager-edit-password-again" minlength="8" maxlength="64">
-                    </div>
-
-                    <div class="manager-input__checkbox-wrapper">
-                        <input type="checkbox" id="manager-edit-access" name="manager-edit-access">
-                        <div class="manager-input-checkbox"></div>
-                        <label for="manager-edit-access" class="p1">Закрыть доступ</label>
-                    </div>
-
-                    <p class="manager-modal__error" id="manager-edit-error">Ошибка:</p>
-
-                    <div class="manager-modal__buttons">
-                        <button class="manager-modal__button-cancel" id="manager-edit__cancel-button" type="reset">Отменить</button>
-                        <button class="manager-modal__button-submit" id="manager-edit__submit-button" type="submit">Сохранить</button>
-                    </div>
-                </form>
             </div>
         </div>
 
         <!-- Изменение доступа к диагностикам -->
-        <div id="manager-diagnostics-wrapper">
+        <div class="manager-modal__wrapper" id="manager-diagnostics-wrapper">
             <div class="manager-modal">
-                <div class="manager-modal__title">
-                    <p class="p1-strong">Доступ к диагностикам</p>
-                    <img class="manager-modal__close-button" id="manager-diagnostics__close-button" src="./assets/close-modal.svg" alt="close-modal">
-                </div>
-                <p>Отметь те диагностики, которые специалист сможет видеть и использовать</p>
-                <div class="manager-modal__diagnostics-filters">
-                    <button class="manager-modal__filter" id="manager-modal__filter-all">Выбрать все</button>
-                </div>
-                <div class="manager-modal__diagnostics-container">
-                    <!-- <div class="manager-input__checkbox-wrapper">
-                        <input type="checkbox" id="manager-diagnostics-1" name="manager-diagnostics-1">
-                        <div class="manager-input-checkbox"></div>
-                        <label for="manager-diagnostics-1" class="p1">43 Профессии</label>
-                    </div> -->
-                </div>
-
-                <div class="manager-modal__buttons">
-                    <button class="manager-modal__button-cancel" id="manager-diagnostics__cancel-button">Отменить</button>
-                    <button class="manager-modal__button-submit" id="manager-diagnostics__submit-button">Сохранить</button>
+                <div class="manager-modal__content">
+                    <div class="manager-modal__title">
+                        <p class="p1-strong">Доступ к диагностикам</p>
+                        <img class="manager-modal__close-button" id="manager-diagnostics__close-button" src="./assets/close-modal.svg" alt="close-modal">
+                    </div>
+                    <p>Отметь те диагностики, которые специалист сможет видеть и использовать</p>
+                    <div class="manager-modal__diagnostics-filters">
+                        <button class="manager-modal__filter" id="manager-modal__filter-all">Выбрать все</button>
+                    </div>
+                    <div class="manager-modal__diagnostics-container">
+                        <!-- <div class="manager-input__checkbox-wrapper">
+                            <input type="checkbox" id="manager-diagnostics-1" name="manager-diagnostics-1">
+                            <div class="manager-input-checkbox"></div>
+                            <label for="manager-diagnostics-1" class="p1">43 Профессии</label>
+                        </div> -->
+                    </div>
+    
+                    <div class="manager-modal__buttons">
+                        <button class="manager-modal__button-cancel" id="manager-diagnostics__cancel-button">Отменить</button>
+                        <button class="manager-modal__button-submit" id="manager-diagnostics__submit-button">Сохранить</button>
+                    </div>
                 </div>
             </div>
         </div>

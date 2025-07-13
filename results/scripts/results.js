@@ -656,7 +656,99 @@ function renderResult(result) {
         `)
     } else if (diagnosticId === 16) {
         // 10 вопросов
+
+        let textLevel = ""
+        if (result.data.sum !== undefined) {
+            let level = result.data.sum
+            if (level >= 8) {
+                textLevel = `Выраженное эмоциональное выгорание, необходима профессиональная помощь и серьезная коррекция ситуации`
+            } else if (level >= 5 && level <= 7) {
+                textLevel = `Начинающееся эмоциональное выгорание, требующее внимания (стоит взять отпуск, отдохнуть, организовать свою работу более комфортно)`
+            } else if (level <= 4) {
+                textLevel = `Эмоциональное выгорание отсутствует или выражено слабо`
+            } else {
+                textLevel = "Неверное значение суммы"
+            }
+        }
+
+        $("section").append(`
+            <div class="container-table">
+                <div class="d-table-info">
+                    <div class="d-table-input-block">
+                        <p><strong>Клиент</strong></p>
+                        <input type="text" value="${result.name}" readonly>
+                    </div>
+                    <div class="d-table-input-block">
+                        <p><strong>Название диагностики</strong></p>
+                        <input type="text" value="${result["diagnostic-title"]}" readonly>
+                    </div>
+                    <div class="d-table-input-block">
+                        <p>Дата прохождения</p>
+                        <input type="text" value="${getData(result.date)}" readonly>
+                    </div>
+                </div>
+                
+                <div class="d-table-two-column d-table-row_first">
+                    <p class="centered centered-text upper">Изменить текст</p>
+                    <p class="centered upper">Баллы</p>
+                </div>
+                
+                <div class="d-table-two-column">
+                    <p class="centered centered-text">Итоговый балл</p>
+                    <p class="centered">${result.data.sum}</p>
+                </div>
+
+                <div class="d-table-two-column d-table-row_last">
+                    <p class="centered centered-text">Пояснение</p>
+                    <p class="learning-motivation-level centered">${textLevel}</p>
+                </div>
+            </div>
+        `)
     } else if (diagnosticId === 17) {
         // Я на работе
+
+        $("section").append(`
+            <div class="container-table">
+                <div class="d-table-info">
+                    <div class="d-table-input-block">
+                        <p><strong>Клиент</strong></p>
+                        <input type="text" value="${result.name}" readonly>
+                    </div>
+                    <div class="d-table-input-block">
+                        <p><strong>Название диагностики</strong></p>
+                        <input type="text" value="${result["diagnostic-title"]}" readonly>
+                    </div>
+                    <div class="d-table-input-block">
+                        <p>Дата прохождения</p>
+                        <input type="text" value="${getData(result.date)}" readonly>
+                    </div>
+                </div>
+                
+                <div class="d-table-two-column d-table-row_first">
+                    <p class="centered centered-text upper">Изменить текст</p>
+                    <p class="centered upper">Баллы</p>
+                </div>
+                
+                <div class="d-table-two-column">
+                    <p class="centered centered-text">Эмоциональное истощение</p>
+                    <p class="centered">${result.data.emotionalExhaustion}</p>
+                </div>
+
+                <div class="d-table-two-column">
+                    <p class="centered centered-text">Деперсонализация</p>
+                    <p class="centered">${result.data.depersonalization}</p>
+                </div>
+        
+                <div class="d-table-two-column">
+                    <p class="centered centered-text">Редукция профессиональных достижений </p>
+                    <p class="centered">${result.data.reductionProfessionalism}</p>
+                </div>
+        
+                <div class="d-table-two-column d-table-row_last">
+                    <p class="centered centered-text">Общий индекс выгорания</p>
+                    <p class="centered">${result.data.burnout}</p>
+                </div>
+            </div>
+        `)
     }
 }

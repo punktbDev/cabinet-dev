@@ -91,21 +91,24 @@ managerAddForm.addEventListener("submit", (event) => {
         name: managerName || "", // Если значение есть, то вставляем, иначе пустая строка
         surname: managerSurname || "", // Если значение есть, то вставляем, иначе пустая строка
         phone: "",
+        is_full_access: false,
         is_active: true,
         is_admin: false
     }
 
     console.log(newManager);
-    return
 
     // Отключаем кнопку до окончания ответа
     const submitButton = $("#manager-add__submit-button");
     submitButton.attr("disabled", "disabled");
 
     DBaddManager(newManager, (data) => {
+        // Включаем кнопку, выключаем модальное окно и рендерим менеджеров
+        $("#manager-add-wrapper").css("display", "none")
         submitButton.removeAttr("disabled");
         renderManagers()
     }, (error) => {
+        console.log(error);
         // Если в итоге email не уникальный
         submitButton.removeAttr("disabled");
         return showError("#manager-add-email", "Введенный email занят");

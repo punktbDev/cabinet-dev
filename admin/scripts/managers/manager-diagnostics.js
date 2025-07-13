@@ -17,6 +17,7 @@ renderManagerModalDiagnostics() // И сразу отрисовываем
 
 // Открытие модального окна с диагностиками
 function openManagerModalDiagnostics(availableDiagnostics) {
+    // Включаем все доступные диагностики
     $(`.manager-modal__diagnostics-container input[type="checkbox"]`).each(function() {
         let idAttr = this.id
         let id = Number(idAttr.split("-")[2])
@@ -24,15 +25,24 @@ function openManagerModalDiagnostics(availableDiagnostics) {
     });
 
     $("#manager-diagnostics-wrapper").css("display", "flex")
+
+    // Прокручиваем на верх
+    $(".manager-modal__diagnostics-container").scrollTop(0);
 }
 
 // Открытие модального окна с изменением менеджера
-$("#container-managers").on("click tap", ".manager-diagnostics-button", () => {
+$("#container-managers").on("click tap", ".manager-diagnostics-button", function(event) {
     // Сбрасываем значение фильтра
     managerModalFilterAllActive = false 
 
-    // Сюда нужно будет передавать какие диагностики УЖЕ доступны клиенту
-    openManagerModalDiagnostics([0, 1, 5, 8,, 7, 17])
+    const managerContainer = $(event.currentTarget).closest(".manager-container");
+    const fullId = managerContainer.attr("id");
+    editableManagerId = fullId.split("-").pop(); // Извлекаем id
+    const editableManager = managers.find(item => item.id === Number(editableManagerId))
+    console.log(editableManager.available_diagnostics);
+
+    // Какие диагностики уже доступны клиенту, если null - то рендерим пустой список
+    openManagerModalDiagnostics(editableManager.available_diagnostics || [])
 })
 
 // При нажатие на обвертку модальное окно закрывается
@@ -70,12 +80,25 @@ $("#manager-diagnostics__submit-button").on("click tap", () => {
         availableDiagnostics.push(Number(idAttr.split("-")[2]))
     });
 
-    // Отправляем новые доступные диагностики
-    console.log(availableDiagnostics);
-    
-    // ... Описать API
+    // Отправляем новые доступные диагностики в скопированного менеджера
+    let newManager = {...managers.find(item => item.id === Number(editableManagerId))}
 
-    // И закрываем окно после успеха
-    $("#manager-diagnostics-wrapper").css("display", "none")
+    // Вставляем новый список доступных диагностик
+    newManager.available_diagnostics = availableDiagnostics
+    console.log(newManager);
+
+    // Отключаем кнопку до окончания ответа
+    const submitButton = $("#manager-diagnostics__submit-button");
+    submitButton.attr("disabled", "disabled");
+    
+    DBeditManager(newManager, (data) => {
+        // Включаем кнопку, выключаем модальное окно и рендерим менеджеров
+        $("#manager-diagnostics-wrapper").css("display", "none")
+        submitButton.removeAttr("disabled")
+        renderManagers()
+    }, (error) => {
+        submitButton.removeAttr("disabled")
+        console.log("DBeditManager => error: ", error);
+    })
 })
 

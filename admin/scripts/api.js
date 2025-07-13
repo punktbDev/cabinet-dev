@@ -65,26 +65,16 @@ function DBaddManager(data, func, func_error) {
     })
 }
 
-// Изменить доступ менеджера
-function DBsetManagerActive(id, func) {
+// Изменить информацию менеджера
+function DBeditManager(data, func, func_error) {
     $.ajax({
-        url: API_URL + "/manager/is-active/" + id,
+        url: API_URL + "/manager/" + data.id,
         method: "PUT",
         headers: {
             "Authorization": "Basic " + btoa(userData.login + ":" + userData.password)
         },
-        success: func
-    })
-}
-
-// Изменить access менеджера
-function DBsetManagerAccess(id, func) {
-    $.ajax({
-        url: API_URL + "/manager/full-access/" + id,
-        method: "PUT",
-        headers: {
-            "Authorization": "Basic " + btoa(userData.login + ":" + userData.password)
-        },
-        success: func
+        data: JSON.stringify(data),
+        success: func,
+        error: func_error
     })
 }

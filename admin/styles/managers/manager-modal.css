@@ -1,14 +1,34 @@
-/* Само модальное окно */
+/* Обвертка модального окна */
+.manager-modal__wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5; /* Выше навигации */
+}
+
+/* Само модальное окно, нужно для прокрутки на мобиле */
 .manager-modal {
-    width: 560px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+/* Контент модального окна */
+.manager-modal__content {
+    width: min(560px, 100%);
     box-sizing: border-box;
     padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 28px;
     
-    background-color: #FFFFFF;
-    border-radius: 20px;
+    margin: 0 auto;
 }
 
 .manager-modal__title {
@@ -70,7 +90,7 @@
 .manager-input input {
     height: 40px;
     width: 100%;
-    padding: 0 4px;
+    padding: 0 16px;
     box-sizing: border-box;
     font-size: 20px;
 
@@ -137,7 +157,7 @@
 .manager-modal__buttons {
     display: flex;
     gap: 20px;
-    margin-top: 24px;
+    margin: 24px auto 0 auto;
 }
 
 .manager-modal__buttons button {
@@ -145,6 +165,7 @@
     height: 40px;
 
     font-size: 20px;
+    border-radius: 10px;
     
 }
 

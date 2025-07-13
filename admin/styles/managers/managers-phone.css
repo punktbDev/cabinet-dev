@@ -4,4 +4,17 @@
         justify-content: space-between;
         gap: 12px;
     }
+
+    .manager-container > p {
+        font-size: 20px;
+    }
+
+    .manager-buttons {
+        flex-direction: column;
+    }
+
+    .manager-buttons button {
+        height: 40px;
+        border-radius: 10px;
+    }
 }
