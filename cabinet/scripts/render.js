@@ -230,9 +230,6 @@ function renderDiagnostics() {
         return [item];
     });
 
-    // Удаление новых диагностик из рендера, но не из логики открытой карточки клиента
-    updatedDiagnostics.splice(-3, 3);
-
     for (let diagnostic of updatedDiagnostics) {
         if (diagnostic.link !== "Недоступно") {
             $("#container-diagnostics .content").append(`
