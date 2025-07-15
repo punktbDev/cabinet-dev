@@ -437,7 +437,7 @@ function renderOpenCard(cardId) {
     $("#open-card-email").val(card.email)
 
     // Меняем лейбл у инпута если телефон родителя
-    if (card["is-phone-adult"]) {
+    if (card["is_phone_adult"]) {
         $("#open-card-phone-label").text("Телефон родителя")
     } else {
         $("#open-card-phone-label").text("Телефон")
