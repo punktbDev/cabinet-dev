@@ -6,3 +6,12 @@
     font-size: 16px;
     display: none;
 }
+
+
+@media screen and (max-width: 1000px) {
+    #clients-loading-count {
+        top: 4px;
+        right: 4px;
+        font-size: 12px;
+    }
+}
