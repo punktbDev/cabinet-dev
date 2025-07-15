@@ -59,9 +59,9 @@ form.addEventListener('submit', (event) => {
             localStorage.setItem("userData", JSON.stringify(data))
 
             if (data.is_admin) {
-                location.href = "/admin/"
+                location.href = "admin"
             } else {
-                location.href = "/"
+                location.href = "../"
             }
         },
         error: (error) => {
