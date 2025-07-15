@@ -30,7 +30,7 @@ DBgetUserData((data) => {
 }, (error) => {
     // Если ошибка - это значит что данные для входа изменились. Удаляем старую информацию и переносим на вход
     localStorage.removeItem("userData")
-    location.href = "login"
+    location.href = "../login"
 })
 
 

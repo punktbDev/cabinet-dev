@@ -1,7 +1,7 @@
 // Выход из профиля
 $("#profile-exit").on("click tap", () => {
     localStorage.removeItem("userData")
-    location.href = "login"
+    location.href = "../login"
 })
 
 
