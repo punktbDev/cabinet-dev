@@ -398,9 +398,13 @@ function renderClients(data) {
     cardsClients = applyFilters(cardsClients, filterClients)
     cardsArchive = applyFilters(cardsArchive, filterArchive)
 
-    const BATCH_SIZE = 500
+    $("#container-clients .content, #container-archive .content").off("click tap", ".card"); // Перед отрисовкой снимает активацию с карточек
+    $("#clients-loading-count").show() // И показываем число загрузок
+    const BATCH_SIZE = 50
 
     function renderBatch(cards, index, isArchive) {
+        $("#clients-loading-count").text(`${index}/${cards.length}`)
+        
         // Отрисовка батча карточек
         const batch = cards.slice(index, index + BATCH_SIZE)
         for (let card of batch) {
@@ -409,20 +413,21 @@ function renderClients(data) {
 
         if (index + BATCH_SIZE < cards.length) {
             // Рекурсивно отрисовать следующий батч без блокировки UI
-            setTimeout(() => renderBatch(cards, index + BATCH_SIZE, isArchive), 0)
+            setTimeout(() => renderBatch(cards, index + BATCH_SIZE, isArchive), 1)
         } else if (!isArchive) {
             // После рендера обычных карточек — начать рендер архива
             renderBatch(cardsArchive, 0, true)
         } else {
             // После полной отрисовки всех карточек — привязка событий и триггеры поиска
-            $(`.card`).unbind()
-            $(`.card`).on("click tap", (event) => {
-                renderOpenCard(event.currentTarget.id.split("-")[1]) // Передаем id карточки
+            $("#container-clients .content, #container-archive .content").on("click tap", ".card", function() {
+                const cardId = this.id.split("-")[1];
+                renderOpenCard(cardId) // Передаем id карточки
             })
 
             // Триггерим поиск после рендера
             $("#search-clients").trigger("input")
             $("#search-archive").trigger("input")
+            $("#clients-loading-count").hide()
         }
     }
 
