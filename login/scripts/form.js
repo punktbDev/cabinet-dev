@@ -79,7 +79,7 @@ form.addEventListener('submit', (event) => {
 
 // Кнопка "забыли пароль"
 $("#forgot-password").on("click tap", () => {
-    window.open("../forgot-password", "_blank")
+    window.open("../forgot-password/", "_blank")
 })
 
 
