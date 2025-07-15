@@ -36,7 +36,7 @@ DBgetUserData((data) => {
 
 // Отправка формы профиля
 const profileForm = document.querySelector("#profile-form")
-profileForm.addEventListener('submit', (event) => {
+profileForm.addEventListener("submit", (event) => {
     // Отключение базового перехода
     event.preventDefault()
 
@@ -98,7 +98,7 @@ $("#password-new, #password-new-again").on("input", () => { // Удаление 
 
 // Отправка формы пароля профиля
 const passwordForm = document.querySelector("#password-form")
-passwordForm.addEventListener('submit', (event) => {
+passwordForm.addEventListener("submit", (event) => {
     // Отключение базового перехода
     event.preventDefault()
 
@@ -369,85 +369,52 @@ function renderClient(card) {
 
 // Функция рендера всех карточек
 function renderClients(data) {
+    // Очищаем контент
     $("#container-clients .content").html("") // Очищаем контент
     $("#container-archive .content").html("") // Очищаем контент
 
     // Карточки сортированные по дате от новых к старым
-    let clientsData = data.sort((x,y) => {return x.date - y.date}).reverse()
+    let clientsData = data.sort((x, y) => x.date - y.date).reverse()
 
-    // Отделяем обычные от архивных что бы применить на них разные фильтры
+    // Отделяем обычные от архивных чтобы применить разные фильтры
     let cardsClients = clientsData.filter(item => !item.in_archive)
     let cardsArchive = clientsData.filter(item => item.in_archive)
 
-
-    // Фильтр От
-    if (filterClients.from !== "") {
-        let fromDate = new Date(filterClients.from)
-        cardsClients = cardsClients.filter(card => {return fromDate < card.date})
+    // Утилита для фильтрации от, до и сортировки по имени
+    function applyFilters(cards, cfg) {
+        if (cfg.from !== "") {  
+            cards = cards.filter(card => new Date(cfg.from) < card.date)
+        }
+        // Фильтр До
+        if (cfg.to !== "") {
+            cards = cards.filter(card => card.date < new Date(cfg.to))
+        }
+        // Сортировка по имени
+        if (cfg.filter === "name") {
+            cards.sort((a, b) => a.name.localeCompare(b.name))
+        }
+        return cards
     }
 
-    // Фильтр До
-    if (filterClients.to !== "") {
-        let toDate = new Date(filterClients.to)
-        cardsClients = cardsClients.filter(card => {return card.date < toDate})
-    }
-
-    // Фильтр клиентов в алфавитном порядке
-    if (filterClients.filter === "name") {
-        cardsClients = cardsClients.sort((a,b) => {
-            if (a.name < b.name) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-            return 0;
-        })
-    }
-
-
-    // Фильтр От
-    if (filterArchive.from !== "") {
-        let fromDate = new Date(filterArchive.from)
-        cardsArchive = cardsArchive.filter(card => {return fromDate < card.date})
-    }
-
-    // Фильтр До
-    if (filterArchive.to !== "") {
-        let toDate = new Date(filterArchive.to)
-        cardsArchive = cardsArchive.filter(card => {return card.date < toDate})
-    }
-
-    // Фильтр архива в алфавитном порядке
-    if (filterArchive.filter === "name") {
-        cardsArchive = cardsArchive.sort((a,b) => {
-            if (a.name < b.name) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-            return 0;
-        })
-    }
+    // Применяем фильтры
+    cardsClients = applyFilters(cardsClients, filterClients)
+    cardsArchive = applyFilters(cardsArchive, filterArchive)
 
     // Рендер обычных карточек
-    for (card of cardsClients) {
+    for (let card of cardsClients) {
         renderClient(card)
     }
 
     // Рендер архивных карточек
-    for (card of cardsArchive) {
+    for (let card of cardsArchive) {
         renderClient(card)
     }
     
-
     // По нажатию на карточку рендер открытой карточки
-    $(`.card`).unbind()
-    $(`.card`).on("click tap", (event) => {
+    $(".card").unbind()
+    $(".card").on("click tap", event => {
         renderOpenCard(event.currentTarget.id.split("-")[1]) // Передаем id карточки на которую нажали
     })
-
 
     // Триггерим поиск после рендера
     $("#search-clients").trigger("input")

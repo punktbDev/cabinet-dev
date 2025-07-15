@@ -36,7 +36,7 @@ DBgetUserData((data) => {
 
 // Отправка формы профиля
 const profileForm = document.querySelector("#profile-form")
-profileForm.addEventListener('submit', (event) => {
+profileForm.addEventListener("submit", (event) => {
     // Отключение базового перехода
     event.preventDefault()
 
@@ -98,7 +98,7 @@ $("#password-new, #password-new-again").on("input", () => { // Удаление 
 
 // Отправка формы пароля профиля
 const passwordForm = document.querySelector("#password-form")
-passwordForm.addEventListener('submit', (event) => {
+passwordForm.addEventListener("submit", (event) => {
     // Отключение базового перехода
     event.preventDefault()
 
@@ -362,101 +362,72 @@ function renderClient(card) {
 
 // Функция рендера всех карточек
 function renderClients(data) {
+    // Очищаем контент
     $("#container-clients .content").html("") // Очищаем контент
     $("#container-archive .content").html("") // Очищаем контент
 
     // Карточки сортированные по дате от новых к старым
-    let clientsData = data.sort((x,y) => {return x.date - y.date}).reverse()
+    let clientsData = data.sort((x, y) => x.date - y.date).reverse()
 
-    // Отделяем обычные от архивных что бы применить на них разные фильтры
+    // Разделяем обычные и архивные
     let cardsClients = clientsData.filter(item => !item.in_archive)
     let cardsArchive = clientsData.filter(item => item.in_archive)
 
-
-    // Фильтр От
-    if (filterClients.from !== "") {
-        let fromDate = new Date(filterClients.from)
-        cardsClients = cardsClients.filter(card => {return fromDate < card.date})
+    // Функция применения фильтров: От, До, сортировка, менеджер
+    function applyFilters(cards, cfg) {
+        // Фильтр От
+        if (cfg.from !== "") {
+            cards = cards.filter(card => new Date(cfg.from) < card.date)
+        }
+        // Фильтр До
+        if (cfg.to !== "") {
+            cards = cards.filter(card => card.date < new Date(cfg.to))
+        }
+        // Сортировка по имени
+        if (cfg.filter === "name") {
+            cards.sort((a, b) => a.name.localeCompare(b.name))
+        }
+        // Фильтр по менеджеру
+        if (cfg.manager !== "1") {
+            cards = cards.filter(item => item.manager_id === parseInt(cfg.manager))
+        }
+        return cards
     }
 
-    // Фильтр До
-    if (filterClients.to !== "") {
-        let toDate = new Date(filterClients.to)
-        cardsClients = cardsClients.filter(card => {return card.date < toDate})
+    // Применяем фильтры к спискам
+    cardsClients = applyFilters(cardsClients, filterClients)
+    cardsArchive = applyFilters(cardsArchive, filterArchive)
+
+    const BATCH_SIZE = 500
+
+    function renderBatch(cards, index, isArchive) {
+        // Отрисовка батча карточек
+        const batch = cards.slice(index, index + BATCH_SIZE)
+        for (let card of batch) {
+            renderClient(card)
+        }
+
+        if (index + BATCH_SIZE < cards.length) {
+            // Рекурсивно отрисовать следующий батч без блокировки UI
+            setTimeout(() => renderBatch(cards, index + BATCH_SIZE, isArchive), 0)
+        } else if (!isArchive) {
+            // После рендера обычных карточек — начать рендер архива
+            renderBatch(cardsArchive, 0, true)
+        } else {
+            // После полной отрисовки всех карточек — привязка событий и триггеры поиска
+            $(`.card`).unbind()
+            $(`.card`).on("click tap", (event) => {
+                renderOpenCard(event.currentTarget.id.split("-")[1]) // Передаем id карточки
+            })
+
+            // Триггерим поиск после рендера
+            $("#search-clients").trigger("input")
+            $("#search-archive").trigger("input")
+        }
     }
 
-    // Фильтр клиентов в алфавитном порядке
-    if (filterClients.filter === "name") {
-        cardsClients = cardsClients.sort((a,b) => {
-            if (a.name < b.name) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-            return 0;
-        })
-    }
-
-    // Фильтр по менеджеру
-    if (filterClients.manager !== "1") { // Если не все менеджеры, то фильтруем
-        cardsClients = cardsClients.filter(item => item.manager_id === parseInt(filterClients.manager))
-    }
-
-
-    // Фильтр От
-    if (filterArchive.from !== "") {
-        let fromDate = new Date(filterArchive.from)
-        cardsArchive = cardsArchive.filter(card => {return fromDate < card.date})
-    }
-
-    // Фильтр До
-    if (filterArchive.to !== "") {
-        let toDate = new Date(filterArchive.to)
-        cardsArchive = cardsArchive.filter(card => {return card.date < toDate})
-    }
-
-    // Фильтр архива в алфавитном порядке
-    if (filterArchive.filter === "name") {
-        cardsArchive = cardsArchive.sort((a,b) => {
-            if (a.name < b.name) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-            return 0;
-        })
-    }
-
-
-    // Фильтр по менеджеру
-    if (filterArchive.manager !== "1") { // Если не все менеджеры, то фильтруем
-        cardsArchive = cardsArchive.filter(item => item.manager_id === parseInt(filterArchive.manager))
-    }
-
-
-    // Рендер обычных карточек
-    for (card of cardsClients) {
-        renderClient(card)
-    }
-
-    // Рендер архивных карточек
-    for (card of cardsArchive) {
-        renderClient(card)
-    }
-    
-
-    // По нажатию на карточку рендер открытой карточки
-    $(`.card`).unbind()
-    $(`.card`).on("click tap", (event) => {
-        renderOpenCard(event.currentTarget.id.split("-")[1]) // Передаем id карточки на которую нажали
-    })
-
-
-    // Триггерим поиск после рендера
-    $("#search-clients").trigger("input")
-    $("#search-archive").trigger("input")
+    // Запускаем поэтапную отрисовку: сначала обычные, затем архивные
+    renderBatch(cardsClients, 0, false)
 }
 
 
