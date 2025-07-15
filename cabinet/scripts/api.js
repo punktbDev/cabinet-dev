@@ -14,7 +14,7 @@ function DBgetUserData(func, func_error) {
 // Обновить информацию о пользователе
 function DBchangeUserData(data, func, func_error) {
     $.ajax({
-        url: API_URL + "/manager",
+        url: API_URL + "/manager/" + data.id,
         method: "PUT",
         headers: {
             "Authorization": "Basic " + btoa(userData.login + ":" + userData.password)
