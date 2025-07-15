@@ -20,4 +20,13 @@
     .manager-input label {
         font-size: 20px;
     }
+
+    .manager-modal__buttons {
+        justify-content: center;
+        margin: 24px 0 0 0;
+    }
+
+    .manager-modal__buttons button {
+        width: 100%;
+    }
 }

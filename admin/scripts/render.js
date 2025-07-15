@@ -199,7 +199,7 @@ function renderDiagnostics() {
     // Очищаем контент перед рендером
     $("#container-diagnostics .content").html("")
 
-    // Тут вырезал блок 
+    // Тут блок с отображение "Недоступно" у клиента
 
     // Вставка диагностик с вк видео и добавление постфикса "(Ютуб)"
     const additionalDiagnostics = [
@@ -208,12 +208,12 @@ function renderDiagnostics() {
     ];
 
     const updatedDiagnostics = diagnostics.flatMap(item => {
-        if (item.id === 9 && userData.available_diagnostics.includes(9)) {
+        if (item.id === 9) {
             const updatedItem = {...item, title: item.title + " (Ютуб)"};
             return [updatedItem, additionalDiagnostics[0]];
         }
 
-        if (item.id === 10 && userData.available_diagnostics.includes(10)) {
+        if (item.id === 10) {
             const updatedItem = {...item, title: item.title + " (Ютуб)"};
             return [updatedItem, additionalDiagnostics[1]];
         }

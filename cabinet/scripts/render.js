@@ -56,7 +56,7 @@ profileForm.addEventListener('submit', (event) => {
 
     // Проверка поля Телефона на регулярном выражении
     let rePhone = /^[\d\+][\d\(\)\ -]{9,14}\d$/
-    if (!rePhone.test(formPhone)) {
+    if (formPhone !== "" && !rePhone.test(formPhone)) {
         inputError("#profile-phone")
         return
     }
@@ -204,7 +204,7 @@ function renderDiagnostics() {
         userData.available_diagnostics = []
     }
 
-    for (let i = 1; i < diagnostics.length; i++) {
+    for (let i = 0; i < diagnostics.length; i++) {
         if (!userData.available_diagnostics.includes(diagnostics[i].id)) {
             diagnostics[i].link = "Недоступно"
         }

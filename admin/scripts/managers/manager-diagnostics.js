@@ -39,7 +39,7 @@ $("#container-managers").on("click tap", ".manager-diagnostics-button", function
     const fullId = managerContainer.attr("id");
     editableManagerId = fullId.split("-").pop(); // Извлекаем id
     const editableManager = managers.find(item => item.id === Number(editableManagerId))
-    console.log(editableManager.available_diagnostics);
+    console.log("editableManager.available_diagnostics", editableManager.available_diagnostics);
 
     // Какие диагностики уже доступны клиенту, если null - то рендерим пустой список
     openManagerModalDiagnostics(editableManager.available_diagnostics || [])
